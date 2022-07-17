@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import UI_FX.Alert_FX;
+import telas.AlertaTela;
 
 public class User {
 
@@ -207,7 +207,7 @@ public class User {
         }
     }
 
-    Alert_FX.info("{POST APAGADO}");
+    AlertaTela.info("{POST APAGADO}");
     }
 
 
@@ -279,6 +279,6 @@ public class User {
 		eventos.remove(i);
 	    }
 	}
-	Alert_FX.info("{EVENT DELETED}");
+	AlertaTela.info("{EVENT DELETED}");
     }
 }

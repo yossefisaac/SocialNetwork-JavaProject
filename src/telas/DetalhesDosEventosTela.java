@@ -1,4 +1,4 @@
-package UI_FX;
+package telas;
 
 import entidades.Eventos;
 import javafx.application.Application;

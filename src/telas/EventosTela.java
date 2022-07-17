@@ -1,4 +1,4 @@
-package UI_FX;
+package telas;
 
 //import dataBase.GameEventsDAO;
 import entidades.Eventos;
@@ -148,7 +148,7 @@ public class EventosTela extends Application {
 		try {
 		    new AdicionarEventoTela(loggedUser).start(stage);
 		} catch (Exception e) {
-		    Alert_FX.error("WHERE'S THE ADD EVENT SCREEN? ");
+		    AlertaTela.error("WHERE'S THE ADD EVENT SCREEN? ");
 		}
 	    }
 	};

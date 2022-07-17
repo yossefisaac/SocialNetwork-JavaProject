@@ -1,8 +1,9 @@
-package UI_FX;
+package telas;
 
 //import dataBase.GameEventsDAO;
 import entidades.Eventos;
 import entidades.User;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -16,11 +17,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class AdicionarEventoTela {
+public class EditarEventosTela extends Application {
     private Stage stage;
-    private Label lblAddEvents;
-    private ImageView game;
     private User loggedUser;
+    private Label lblEditEvents;
+    private ImageView game;
     private TextField eventNameTxt;
     private TextField eventDateTxt;
     private TextField eventLocalTxt;
@@ -29,11 +30,14 @@ public class AdicionarEventoTela {
     private Button saveBtn;
     private Button cancelBtn;
     private Pane pane;
-    
-    public AdicionarEventoTela(User loggedUser) {
+    private Eventos eventos;
+
+    public EditarEventosTela(Eventos eventos, User loggedUser) {
+	this.eventos = eventos;
 	this.loggedUser = loggedUser;
     }
-    
+
+    @Override
     public void start(Stage stage) throws Exception {
 	this.stage = stage;
 
@@ -49,39 +53,38 @@ public class AdicionarEventoTela {
 	stage.setResizable(false);
 	stage.show();
     }
-    
+
     private void initComponents() {
 	
 	Image image = new Image("/imagens/game.png");
 	game = new ImageView(image);
 	
-	lblAddEvents = new Label("NEW GAME EVENTS");
-	lblAddEvents.setFont(new Font(40));
-	lblAddEvents.styleProperty().set("-fx-text-fill: #778899");
+	lblEditEvents = new Label("SET GAME EVENTS");
+	lblEditEvents.setFont(new Font(40));
+	lblEditEvents.styleProperty().set("-fx-text-fill: #778899");
 
 	eventNameTxt = new TextField();
+	eventNameTxt.setText(eventos.getEventoNome());
 	eventNameTxt.setPromptText("EVENT NAME");
 	eventNameTxt.styleProperty().set(
 		"-fx-text-fill: #778899; -fx-border-color: #4169E1; -fx-border-radius: 0; -fx-background-color: #F8F8FF;");
 
 	eventDateTxt = new TextField();
+	eventDateTxt.setText(eventos.getEventoData());
 	eventDateTxt.setPromptText("SAVE THE DATE");
 	eventDateTxt.styleProperty().set(
 		"-fx-text-fill: #778899; -fx-border-color: #4169E1; -fx-border-radius: 0; -fx-background-color: #F8F8FF;");
 
 	eventLocalTxt = new TextField();
+	eventLocalTxt.setText(eventos.getEventoLocal());
 	eventLocalTxt.setPromptText("EVENT LOCAL");
 	eventLocalTxt.styleProperty().set(
 		"-fx-text-fill: #778899; -fx-border-color: #4169E1; -fx-border-radius: 0; -fx-background-color: #F8F8FF;");
 
 	eventDescriptionTxt = new TextField();
+	eventDescriptionTxt.setText(eventos.getEventoDescricao());
 	eventDescriptionTxt.setPromptText("EVENT DESCRIPTION");
 	eventDescriptionTxt.styleProperty().set(
-		"-fx-text-fill: #778899; -fx-border-color: #4169E1; -fx-border-radius: 0; -fx-background-color: #F8F8FF;");
-
-	gameNameTxt = new TextField();
-	gameNameTxt.setPromptText("MAIN GAME NAME");
-	gameNameTxt.styleProperty().set(
 		"-fx-text-fill: #778899; -fx-border-color: #4169E1; -fx-border-radius: 0; -fx-background-color: #F8F8FF;");
 
 	saveBtn = new Button("SAVE");
@@ -97,7 +100,7 @@ public class AdicionarEventoTela {
 	pane = new AnchorPane();
 	pane.styleProperty().set("-fx-background-color: #F2F8D2");
 
-	pane.getChildren().addAll(lblAddEvents, game, eventNameTxt, eventDateTxt, eventLocalTxt, eventDescriptionTxt, gameNameTxt, saveBtn,
+	pane.getChildren().addAll(lblEditEvents, game, eventNameTxt, eventDateTxt, eventLocalTxt, eventDescriptionTxt, gameNameTxt, saveBtn,
 		cancelBtn);
     }
 
@@ -106,9 +109,9 @@ public class AdicionarEventoTela {
 	
 	game.setLayoutX(450);
 	
-	lblAddEvents.setLayoutX(30);
-	lblAddEvents.setLayoutY(30);
-
+	lblEditEvents.setLayoutX(30);
+	lblEditEvents.setLayoutY(30);
+	
 	eventNameTxt.setLayoutX(30);
 	eventNameTxt.setLayoutY(160);
 	eventNameTxt.setPrefHeight(40);
@@ -151,37 +154,34 @@ public class AdicionarEventoTela {
 	    @Override
 	    public void handle(ActionEvent event) {
 		try {
-		    
-		    
+
 		    if (eventNameTxt.getText().isEmpty()) {
-			Alert_FX.alert("EVENT WITHOUT NAME?");
+			AlertaTela.alert("EVENT WITHOUT NAME?");
 			return;
 		    }
 		    if (eventDateTxt.getText().isEmpty()) {
-			Alert_FX.alert("PEOPLE CLAIM FOR A DATE");
+			AlertaTela.alert("PEOPLE CLAIM FOR A DATE");
 			return;
 		    }
 		    if (eventLocalTxt.getText().isEmpty()) {
-			Alert_FX.alert("LOCAL, TO SET MY GPS");
+			AlertaTela.alert("LOCAL, TO SET MY GPS");
 			return;
 		    }
 		    if (eventDescriptionTxt.getText().isEmpty()) {
-			Alert_FX.alert("TELL ME MORE");
-			return;
-		    } 
-		    if (gameNameTxt.getText().isEmpty()) {
-			Alert_FX.alert("WICH GAME?");
+			AlertaTela.alert("TELL ME MORE");
 			return;
 		    }
-		    
-		    System.out.println(loggedUser.getId());
+		    if (gameNameTxt.getText().isEmpty()) {
+			AlertaTela.alert("WICH GAME?");
+			return;
+		    }
 
-		    //new GameEventsDAO().add(new GameEvents(loggedUser , eventNameTxt.getText(), eventDateTxt.getText(),
+		    //new GameEventsDAO().update(new GameEvents(gameEv.getEventId(), eventNameTxt.getText(), eventDateTxt.getText(),
 			    //eventLocalTxt.getText(), eventDescriptionTxt.getText(), gameNameTxt.getText()));
 
 		    openEventScreen();
 		} catch (Exception e) {
-		    Alert_FX.error("I COULDN'T SAVE THIS NEW EVENT");
+		    AlertaTela.error("I COULDN'T SAVE THIS NEW EVENT");
 		}
 	    }
 	};
@@ -191,7 +191,7 @@ public class AdicionarEventoTela {
 	try {
 	    //new GameEvents_FX(loggedUser).start(stage);
 	} catch (Exception e) {
-	    Alert_FX.error("WHERE'S THE GAME EVENTS SCREEN?");
+	    AlertaTela.error("WHERE'S THE GAME EVENTS SCREEN?");
 	}
     }
 
@@ -202,7 +202,7 @@ public class AdicionarEventoTela {
 		try {
 		    //new GameEvents_FX(loggedUser).start(stage);
 		} catch (Exception e) {
-		    Alert_FX.error("WHERE'S THE GAME EVENTS SCREEN?");
+		    AlertaTela.error("WHERE'S THE GAME EVENTS SCREEN?");
 		}
 	    }
 	};

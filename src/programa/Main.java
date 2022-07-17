@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import UI_FX.*;
-
 /*import dataBase.DevEventsDAO;
 import dataBase.FollowDAO;
 import dataBase.GameEventsDAO;
@@ -16,6 +14,7 @@ import dataBase.UtilBD;*/
 import entidades.*;
 
 import javafx.application.Application;
+import telas.*;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package UI_FX;
+package telas;
 
 //import dataBase.UserDAO;
 import entidades.User;
@@ -158,39 +158,39 @@ public class NovoUserTela extends Application {
 	    @Override
 	    public void handle(ActionEvent event) {
 		if (txtUser.getText().isBlank()) {
-		    Alert_FX.alert("USERNAME?");
+		    AlertaTela.alert("USERNAME?");
 		    return;
 		}
 		if (txtPassword1.getText().isBlank()) {
-		    Alert_FX.alert("PASSWORD?");
+		    AlertaTela.alert("PASSWORD?");
 		    return;
 		}
 		if (txtPassword2.getText().isBlank()) {
-		    Alert_FX.alert("PASSWORD..AGAAAAIN?");
+		    AlertaTela.alert("PASSWORD..AGAAAAIN?");
 		    return;
 		}
 		if (txtName.getText().isBlank()) {
-		    Alert_FX.alert("FULL NAME BRO!");
+		    AlertaTela.alert("FULL NAME BRO!");
 		    return;
 		}
 
 		if (!txtPassword1.getText().contentEquals(txtPassword2.getText())) {
-		    Alert_FX.alert("PASSWORD != PASSWORD CONFIRMATION");
+		    AlertaTela.alert("PASSWORD != PASSWORD CONFIRMATION");
 		    return;
 		}
 		if (txtBirthdate.getText().isBlank()) {
-		    Alert_FX.alert("B-DAY?");
+		    AlertaTela.alert("B-DAY?");
 		    return;
 		}
 		if (txtRelationship.getText().isBlank()) {
-		    Alert_FX.alert("RELATIONSHIP?");
+		    AlertaTela.alert("RELATIONSHIP?");
 		    return;
 		}
 
 		//new UserDAO().add(new User(txtUser.getText(), txtPassword1.getText(), txtName.getText(), 
 			//txtBirthdate.getText(), txtRelationship.getText()));
 
-		Alert_FX.info("YOUR SOUL IS OURS, OH I MEAN..WELCOME :)");
+		AlertaTela.info("YOUR SOUL IS OURS, OH I MEAN..WELCOME :)");
 
 		openLoginWindow();
 	    }
@@ -201,7 +201,7 @@ public class NovoUserTela extends Application {
 	try {
 	    new LoginTela().start(stage);
 	} catch (Exception e) {
-	    Alert_FX.error("WHERE'S THE LOGIN SCREEN?");
+	    AlertaTela.error("WHERE'S THE LOGIN SCREEN?");
 	}
     }
 }

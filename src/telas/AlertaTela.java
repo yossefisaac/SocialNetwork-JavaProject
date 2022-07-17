@@ -1,9 +1,9 @@
-package UI_FX;
+package telas;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class Alert_FX {
+public class AlertaTela {
 
     public static void info(String message) {
 	Alert alert = new Alert(AlertType.INFORMATION);

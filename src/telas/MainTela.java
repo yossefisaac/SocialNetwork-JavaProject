@@ -1,4 +1,4 @@
-package UI_FX;
+package telas;
 
 import entidades.User;
 import javafx.application.Application;
@@ -138,7 +138,7 @@ public class MainTela extends Application {
 		try {
 		    new EventosTela(loggedUser).start(stage);
 		} catch (Exception e) {
-		    Alert_FX.error("WHERE'S THE GAME EVENTS SCREEN?");
+		    AlertaTela.error("WHERE'S THE GAME EVENTS SCREEN?");
 		}
 	    }
 	};
@@ -151,7 +151,7 @@ public class MainTela extends Application {
 		try {
 		    new LoginTela().start(stage);
 		} catch (Exception e) {
-		    Alert_FX.error("WHERE'S THE LOGIN SCREEN?");
+		    AlertaTela.error("WHERE'S THE LOGIN SCREEN?");
 		}
 	    }
 	};

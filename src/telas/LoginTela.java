@@ -1,4 +1,4 @@
-package UI_FX;
+package telas;
 
 import java.util.List;
 
@@ -145,7 +145,7 @@ public class LoginTela extends Application {
 		try {
 		    new NovoUserTela().start(stage);
 		} catch (Exception e) {
-		    Alert_FX.error("WHERE'S THE REGISTRATION SCREEN?");
+		    AlertaTela.error("WHERE'S THE REGISTRATION SCREEN?");
 		}
 	    }
 	};
