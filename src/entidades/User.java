@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import telas.AlertaTela;
 
 public class User {
 
@@ -20,13 +19,13 @@ public class User {
     private List<Follow> followers;
     private List<Eventos> eventos;
 
-    LocalDateTime now = LocalDateTime.now();
+    LocalDateTime agora = LocalDateTime.now();
 
     DateTimeFormatter formatterData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    String date = formatterData.format(now);
+    String date = formatterData.format(agora);
 
     DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-    String time = formatterHora.format(now);
+    String time = formatterHora.format(agora);
 
     public User() {
     super();
@@ -120,35 +119,35 @@ public class User {
     this.NomeUsuario = NomeUsuario;
     }
 
-    public String getsenha() {
+    public String getSenha() {
     return senha;
     }
 
-    public void setsenha(String senha) {
+    public void setSenha(String senha) {
     this.senha = senha;
     }
 
-    public String getnome() {
+    public String getNome() {
     return nome;
     }
 
-    public void setnome(String nome) {
+    public void setNome(String nome) {
     this.nome = nome;
     }
 
-    public String getdataNascimento() {
+    public String getDataNascimento() {
     return dataNascimento;
     }
 
-    public void setdataNascimento(String dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
     this.dataNascimento = dataNascimento;
     }
 
-    public String getestadoCivil() {
+    public String getEstadoCivil() {
     return estadoCivil;
     }
 
-    public void setestadoCivil(String estadoCivil) {
+    public void setEstadoCivil(String estadoCivil) {
     this.estadoCivil = estadoCivil;
     }
 
@@ -206,8 +205,7 @@ public class User {
         posts.remove(i);
         }
     }
-
-    AlertaTela.info("{POST APAGADO}");
+    System.out.println("{POST APAGADO}");
     }
 
 
@@ -216,22 +214,22 @@ public class User {
     public void mostrarEventos() {
 	for (int i = 0; i < eventos.size(); i++) {
 	    System.out.println();
-	    System.out.println("Dev Event #" + eventos.get(i).getEventoId() + " " + " by " + nome + ", created on " + date
-		    + " at " + time);
-	    System.out.println("We presents to you " + eventos.get(i).getEventoNome() + "!");
-	    System.out.println("Save the date " + eventos.get(i).getEventoData() + " at the " + eventos.get(i).getEventoLocal());
-	    System.out.println("Info " + eventos.get(i).getEventoDescricao());
+	    System.out.println("Evento #" + eventos.get(i).getEventoId() + " " + " por " + nome + ", criado em " + date
+		    + " as " + time);
+	    System.out.println("Título: " + eventos.get(i).getEventoNome());
+	    System.out.println("Reserve a data: " + eventos.get(i).getEventoData() + ", em/na: " + eventos.get(i).getEventoLocal());
+	    System.out.println("Infos: " + eventos.get(i).getEventoDescricao());
 	}
     }
 
     public void mostrarSeusEventos() {
 	for (int i = 0; i < eventos.size(); i++) {
 	    System.out.println();
-	    System.out.println("Dev Event #" + eventos.get(i).getEventoId() + " " + " by " + nome + " created on " + date
-		    + " at " + time);
-	    System.out.println("We presents to you " + eventos.get(i).getEventoNome() + "!");
-	    System.out.println("Save the date " + eventos.get(i).getEventoData() + " at the " + eventos.get(i).getEventoLocal());
-	    System.out.println("Info: " + eventos.get(i).getEventoDescricao());
+	    System.out.println("Evento #" + eventos.get(i).getEventoId() + " " + " por " + nome + " criado em " + date
+		    + " as " + time);
+	    System.out.println("We presents to you " + eventos.get(i).getEventoNome());
+	    System.out.println("Reserve a data: " + eventos.get(i).getEventoData() + ", em/na: " + eventos.get(i).getEventoLocal());
+	    System.out.println("InfoS: " + eventos.get(i).getEventoDescricao());
 	    System.out.println();
 	}
     }
@@ -279,6 +277,6 @@ public class User {
 		eventos.remove(i);
 	    }
 	}
-	AlertaTela.info("{EVENT DELETED}");
+    System.out.println("{EVENTO APAGADO}");
     }
 }
