@@ -9,7 +9,7 @@ import java.util.List;
 public class User {
 
     private Integer id;
-    private String NomeUsuario;
+    private String nomeUsuario;
     private String senha;
     private String nome;
     private String dataNascimento;
@@ -31,10 +31,10 @@ public class User {
     super();
     }
 
-    public User(Integer id, String NomeUsuario, String senha, String nome, String dataNascimento, String estadoCivil) {
+    public User(Integer id, String nomeUsuario, String senha, String nome, String dataNascimento, String estadoCivil) {
     super();
     this.id = id;
-    this.NomeUsuario = NomeUsuario;
+    this.nomeUsuario = nomeUsuario;
     this.senha = senha;
     this.nome = nome;
     this.dataNascimento = dataNascimento;
@@ -44,10 +44,10 @@ public class User {
     this.eventos = new ArrayList<>();
     }
     
-    public User(Integer id, String NomeUsuario, String nome, String dataNascimento, String estadoCivil) {
+    public User(Integer id, String nomeUsuario, String nome, String dataNascimento, String estadoCivil) {
     super();
     this.id = id;
-    this.NomeUsuario = NomeUsuario;
+    this.nomeUsuario = nomeUsuario;
     this.nome = nome;
     this.dataNascimento = dataNascimento;
     this.estadoCivil = estadoCivil;
@@ -56,9 +56,9 @@ public class User {
     this.eventos = new ArrayList<>();
     }
     
-    public User(String NomeUsuario, String senha, String nome, String dataNascimento, String estadoCivil) {
+    public User(String nomeUsuario, String senha, String nome, String dataNascimento, String estadoCivil) {
     super();
-    this.NomeUsuario = NomeUsuario;
+    this.nomeUsuario = nomeUsuario;
     this.senha = senha;
     this.nome = nome;
     this.dataNascimento = dataNascimento;
@@ -69,8 +69,8 @@ public class User {
     this.eventos = new ArrayList<>();
     }
 
-    public User(String NomeUsuario, String dataNascimento, String estadoCivil) {
-    this.NomeUsuario = NomeUsuario;
+    public User(String nomeUsuario, String dataNascimento, String estadoCivil) {
+    this.nomeUsuario = nomeUsuario;
     this.dataNascimento = dataNascimento;
     this.estadoCivil = estadoCivil;
     this.posts = new ArrayList<>();
@@ -78,28 +78,26 @@ public class User {
     this.eventos = new ArrayList<>();
     }
     
-    public User(String NomeUsuario
-) {
-    this.NomeUsuario = NomeUsuario;
+    public User(String nomeUsuario) {
+    this.nomeUsuario = nomeUsuario;
     }
     
-    public User(Integer id, String NomeUsuario
-) {
+    public User(Integer id, String nomeUsuario) {
     super();
     this.id = id;
-    this.NomeUsuario = NomeUsuario;
+    this.nomeUsuario = nomeUsuario;
     }
 
-    public User(String NomeUsuario, String senha) {
+    public User(String nomeUsuario, String senha) {
     super();
-    this.NomeUsuario = NomeUsuario;
+    this.nomeUsuario = nomeUsuario;
     this.senha = senha;
     }
     
-    public User(Integer id, String NomeUsuario, String senha) {
+    public User(Integer id, String nomeUsuario, String senha) {
     super();
     this.id = id;
-    this.NomeUsuario = NomeUsuario;
+    this.nomeUsuario = nomeUsuario;
     this.senha = senha;
     }
 
@@ -112,11 +110,11 @@ public class User {
     }
 
     public String getNomeUsuario() {
-    return NomeUsuario;
+    return nomeUsuario;
     }
 
-    public void setNomeUsuario(String NomeUsuario) {
-    this.NomeUsuario = NomeUsuario;
+    public void setNomeUsuario(String nomeUsuario) {
+    this.nomeUsuario = nomeUsuario;
     }
 
     public String getSenha() {

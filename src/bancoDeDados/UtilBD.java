@@ -20,7 +20,6 @@ public class UtilBD {
 
 	} catch (SQLException e) {
 		System.out.println("{ ERROR: COULDN'T OPEN DATABASE CONECTION }");
-	    //Alert_FX.erro("");
 	}
 
 	return conection;
@@ -32,9 +31,7 @@ public class UtilBD {
 	    conection = DriverManager.getConnection("jdbc:sqlite:banco.sqlite");
 	} catch (SQLException e) {
 		System.out.println("{ ERROR: COULDN'T OPEN DATABASE CONECTION }");
-	    //Alert_FX.erro("{ ERROR: COULDN'T OPEN DATABASE CONECTION }");
 	} catch (ClassNotFoundException e2) {
-	    //Alert_FX.erro("{ ERROR: PROBLEM WITH SQL LIB }");
 		System.out.println("{ ERROR: PROBLEM WITH SQL LIB }");
 	}
     }
@@ -47,7 +44,6 @@ public class UtilBD {
 	    if (!conection.isClosed())
 		conection.close();
 	} catch (SQLException e) {
-	    //Alert_FX.erro("{ ERROR: COULDN'T CREATE DATABASE CONNECTION }");
 		System.out.println("{ ERROR: COULDN'T CREATE DATABASE CONNECTION }");
 	}
     }
@@ -66,7 +62,6 @@ public class UtilBD {
 	    stm.close();
 	} catch (SQLException e) {
 		System.out.println("{ ERROR: COULDN'T CREATE DATABASE }");
-	    //Alert_FX.erro("");
 	    System.out.println(e);
 	}
     }
@@ -95,15 +90,6 @@ public class UtilBD {
 		+ "VALUES('@yossef','Computação day','22/07/2022','UEPB',"
 		+ "'Dia da computação')");
     }
-
-	private static void createGameEvents(Statement stm) throws SQLException {
-		stm.executeUpdate("DROP TABLE IF EXISTS GameEvents");
-		stm.executeUpdate("CREATE TABLE GameEvents (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-			+ "eventName VARCHAR(150) NOT NULL," + "eventDate VARCHAR(10) NOT NULL,"
-			+ "eventLocal VARCHAR(150) NOT NULL," + "eventDescription VARCHAR(300) NOT NULL,"
-			+ "gameName VARCHAR(150) NOT NULL);");
-			//+ "CONSTRAINT username FOREIGN KEY (username) REFERENCES User (username) ON UPDATE CASCADE ON DELETE CASCADE);");
-		}
 
     private static void createFollow(Statement stm) throws SQLException {
 	stm.executeUpdate("DROP TABLE IF EXISTS Follow");
